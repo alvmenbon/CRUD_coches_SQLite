@@ -45,10 +45,10 @@
                     </thead>
                     <tbody>
                       <?php 
-                      $query = "SELECT * FROM cars";
-                      $result_car = mysqli_query($conn, $query);
+                      
+                      $result_car = $db->query("SELECT * FROM cars");
 
-                      while($row = mysqli_fetch_array($result_car)){?>
+                      while($row = $result_car->fetchArray()){?>
                         <tr>
                             <td><?php echo $row['brand'] ?></td>
                             <td><?php echo $row['model'] ?></td>

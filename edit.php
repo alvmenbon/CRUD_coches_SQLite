@@ -3,11 +3,10 @@
 include("db.php");
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $query = "SELECT * FROM cars WHERE id = $id";
-    $result = mysqli_query($conn, $query);
-    if(mysqli_num_rows($result) == 1) {
+    $result = $db->query("SELECT * FROM cars WHERE id = $id");
+    if(($result) == 1) {
        /* echo 'you can edit'; */
-       $row = mysqli_fetch_array($result);
+       $row = $result->fetchArray();
        $brand = $row['brand'];
        $model = $row['model'];                  /*ESTO COGE LOS DATOS DE TU TABLA*/
        $year = $row['year'];
@@ -31,8 +30,9 @@ if (isset($_POST['update'])){
    echo $year;
    echo $matricula;
    echo $precio;*/
-   $query = "UPDATE cars set brand = '$brand', model = '$model', year = '$year', matricula= '$matricula', precio = '$precio' WHERE id = $id";
-   mysqli_query($conn, $query);
+   /*$query = "UPDATE cars set brand = '$brand', model = '$model', year = '$year', matricula= '$matricula', precio = '$precio' WHERE id = $id";
+   mysqli_query($conn, $query);*/
+   $db->query("UPDATE cars set brand = '$brand', model = '$model', year = '$year', matricula= '$matricula', precio = '$precio' WHERE id = $id");
 
     $_SESSION['message']= 'Datos editados correctamente';
     $_SESSION['message_type'] = 'warning';

@@ -9,8 +9,8 @@ if (isset($_POST['save-car'])){
     $matricula = $_POST['matricula'];
     $precio =$_POST['precio'];
 
-    $query = "INSERT INTO cars(brand, model, year, matricula, precio) VALUES('$brand', '$model', '$year', '$matricula', '$precio')";
-    $result = mysqli_query($conn, $query);
+    
+    $result = $db->query("INSERT INTO cars(brand, model, year, matricula, precio) VALUES('$brand', '$model', '$year', '$matricula', '$precio')");
     
     
     if (!$result) {

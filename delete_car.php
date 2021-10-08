@@ -3,8 +3,7 @@
 include("db.php");
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $query = "DELETE FROM cars WHERE id = $id";
-    $result = mysqli_query($conn, $query);
+    $result = $db->query("DELETE FROM cars WHERE id = $id");
     if(!$result){
         die("query failed");
     }
