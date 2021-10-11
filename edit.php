@@ -4,7 +4,7 @@ include("db.php");
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $result = $db->query("SELECT * FROM cars WHERE id = $id");
-    if(($result) == 1) {
+    if($result!=NULL) {
        /* echo 'you can edit'; */
        $row = $result->fetchArray();
        $brand = $row['brand'];
