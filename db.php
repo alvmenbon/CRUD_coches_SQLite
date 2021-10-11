@@ -9,9 +9,9 @@ class MiBD extends SQLite3{
 }
 
 $db = new MiBD();
-if(isset($db)){
+/*if(isset($db)){
     echo "La base de datos funciona";
-}
+}*/
 
 
 
